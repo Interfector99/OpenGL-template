@@ -1,8 +1,6 @@
 #pragma once
 #include"Entity.hpp"
 
-using namespace std;
-
 class Window
 {
 private:
@@ -12,9 +10,11 @@ private:
     bool IS_FULLSCREEN;
 
     GLFWwindow* window;
+
+    Entity background;
 public:
     Window(int WIDTH, int HEIGHT, int FRAMERATE, bool IS_FULLSCREEN);
+    void initialize();
     void run();
-    void render();
     void destroy();
 };

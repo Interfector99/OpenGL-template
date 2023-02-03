@@ -10,7 +10,7 @@ public:
 	GLuint ID;
 	// Constructor that generates a VAO ID
 	VAO();
-
+	void initialize();
 	// Links a VBO Attribute such as a position or color to the VAO
 	void LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset);
 	// Binds the VAO

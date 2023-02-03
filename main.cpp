@@ -1,16 +1,10 @@
 #include "Window.hpp"
-#include <thread>
-
-void foo()
-{
-	Window window(800, 600, 60, false);
-	window.run();
-	window.destroy();
-}
 
 int main()
 {
-	thread first(foo);
-	first.join();
+	Window window(1280, 720, 60, false);
+	window.initialize();
+	window.run();
+	window.destroy();
 	return 0;
 }
