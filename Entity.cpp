@@ -42,6 +42,7 @@ void Entity::initialize()
 
 void Entity::render()
 {
+	// check
 	shader.Activate();
 	glUniform1f(scale, 1.0f);
 	texture.Bind();
