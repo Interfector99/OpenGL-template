@@ -1,5 +1,5 @@
 #pragma once
-#include"Entity.hpp"
+#include "Entity.hpp"
 
 class Window
 {
@@ -12,6 +12,7 @@ private:
     GLFWwindow* window;
 
     Entity background;
+    Entity circle;
 public:
     Window(int WIDTH, int HEIGHT, int FRAMERATE, bool IS_FULLSCREEN);
     void initialize();

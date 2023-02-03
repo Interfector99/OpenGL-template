@@ -1,19 +1,19 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 
-#include<glad/glad.h>
-#include<GLFW/glfw3.h>
-#include<glm/glm.hpp>
-#include<glm/gtc/matrix_transform.hpp>
-#include<glm/gtc/type_ptr.hpp>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
-#include"Texture.hpp"
-#include"Shader.hpp"
-#include"VAO.hpp"
-#include"VBO.hpp"
-#include"EBO.hpp"
+#include "Texture.hpp"
+#include "Shader.hpp"
+#include "VAO.hpp"
+#include "VBO.hpp"
+#include "EBO.hpp"
 
-#include"stb/stb_image.h"
+#include "stb/stb_image.h"
 
 using namespace std;
 
@@ -30,8 +30,8 @@ private:
 	GLuint scale;
 public:
 	Entity();
-	void initialize();
-	void render();
+	void initialize(string vert, string frag, string path);
+	void render(float s);
 	void destroy();
 };
 

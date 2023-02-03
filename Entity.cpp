@@ -21,9 +21,9 @@ Entity::Entity()
 
 }
 
-void Entity::initialize()
+void Entity::initialize(string vert, string frag, string path)
 {
-	shader = Shader("Shaders/background.vert", "Shaders/background.frag");
+	shader = Shader(vert.c_str(), frag.c_str());
 	vao.initialize();
 	vao.Bind();
 	vbo = VBO(quadVertices, sizeof(quadVertices));
@@ -35,16 +35,14 @@ void Entity::initialize()
 	vbo.Unbind();
 	ebo.Unbind();
 	scale = glGetUniformLocation(shader.ID, "scale");
-	string path = "Textures/valley.jpg";
 	texture = Texture(path.c_str(), GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	texture.texUnit(shader, "tex0", 0);
 }
 
-void Entity::render()
+void Entity::render(float s)
 {
-	// check
 	shader.Activate();
-	glUniform1f(scale, 1.0f);
+	glUniform1f(scale, s);
 	texture.Bind();
 	vao.Bind();
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

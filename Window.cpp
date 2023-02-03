@@ -38,14 +38,15 @@ void Window::initialize()
 
 	// set additional parameters
 	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	//glBlendFunc(GL_ONE, GL_ONE);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_ONE, GL_ONE);
 }
 
 void Window::run()
 {
 	// make background entity
-	background.initialize();
+	background.initialize("Shaders/entity.vert", "Shaders/entity.frag", "Textures/valley.jpg");
+	circle.initialize("Shaders/circle.vert", "Shaders/circle.frag", "");
 
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
@@ -55,11 +56,12 @@ void Window::run()
 		processInput(window);
 
 		// Specify the color of the background
-		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// triangle entity draw
-		background.render();
+		// background entity draw
+		background.render(1.0f);
+		circle.render(0.0f);
 
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
@@ -68,6 +70,7 @@ void Window::run()
 
 	// Delete all the objects we've created
 	background.destroy();
+	circle.destroy();
 }
 
 void Window::destroy()
