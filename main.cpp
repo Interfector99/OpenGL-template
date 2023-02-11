@@ -2,7 +2,7 @@
 
 int main()
 {
-	Window window(800, 800, 60, false);
+	Window window(600, 600, 60, false);
 	window.initialize();
 	window.run();
 	window.destroy();
